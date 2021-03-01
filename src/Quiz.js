@@ -1,12 +1,20 @@
 import React from 'react';
 
-
 class Question extends React.Component{
+state = {
+  question_text:"Which is not a database?",
+  choices:{
+	  1:"Redis",
+	  2:"PostrgreSQL",
+	  3:"DJango",
+	  4:"MYSql"
+  }
+}
 render(){
 return  (<div class="container">
-   <div class="question-text">{this.props.question_text}</div>
+   <div class="question-text">{this.state.question_text}</div>
    <div class="choice-container">
-  <Choice id="1" value="jshshh" />
+	{createChoiceList(this.state.choices)}
 </div>
 </div>);
 }
@@ -20,4 +28,12 @@ class Choice extends React.Component{
 }
 }
 
+function createChoiceList(choices){
+	var choiceList = [];
+	for (var id in choices){
+		choiceList.push(<Choice id={id} value={choices[id]} />);
+	}
+	return (choiceList);
+
+}
 export default Question;

@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+if (process.env.NODEENV !== "production"){
+    require("dotenv").config();
+}
+const API_URL = process.env.API_URL;
 ReactDOM.render(
   <React.StrictMode>
     <App />

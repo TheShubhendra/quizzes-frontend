@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 class Card extends React.Component{
 render(){
 return(
@@ -17,7 +17,7 @@ return(
 	         {this.props.list.map((items)=><li>{items}</li>)}
                  </ul>
                  </div>
-                <a href={this.props.buttonLink} class="btn btn-lg btn-block btn-outline-primary">{this.props.buttonText}</a>
+                <Link to={this.props.buttonLink} className="btn btn-lg btn-block btn-outline-primary">{this.props.buttonText}</Link>
     
                 </div>
             </div>

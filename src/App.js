@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React from 'react';
 import {
     BrowserRouter as Router,
@@ -6,8 +5,6 @@ import {
     Link,
     Switch
 } from 'react-router-dom';
-import  Question from './components/Quiz';
-import './App.css';
 import Home from './components/Home';
 
 function App() {

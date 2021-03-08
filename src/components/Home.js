@@ -51,7 +51,24 @@ return(<div>
 	 buttonText="Create Quiz"
 	 buttonLink="friendship/"
 	/>
-   
+   <Card header="Your quizzes"
+         title="Create quiz from your own questions and options."
+         list={
+             ["Create quiz.",
+              "Add questions and choices",
+              "Share Link of your quiz"
+             ]}
+         buttonText="Create Questions"
+         buttonLink="create/"
+         />
+   <Card header="Prebuilt Quizzes"
+         title="We have a beautiful collections of trivia quizzes only for you."
+         list={["Play quizzes of a particular topic.",
+                "Choose your difficulty level"
+         ]}
+         buttonText="Take Challenge"
+         buttonLink="quizzes/"
+         />
 </div>
 	</div>
 	</div>

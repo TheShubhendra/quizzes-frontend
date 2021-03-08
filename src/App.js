@@ -1,13 +1,22 @@
 import logo from './logo.svg';
 import React from 'react';
-import  Question from './Quiz';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch
+} from 'react-router-dom';
+import  Question from './components/Quiz';
 import './App.css';
+import Home from './components/Home';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-    <Question question_text="How are you" />
+    <Home />
     </div>
+    </Router>
  );
 }
 

@@ -34,3 +34,6 @@ body{
             .choice:hover{
                 background-color:#76f1f4 ;
             }
+	    .quiz-container .footer button{
+		    margin:10px;
+	    }

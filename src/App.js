@@ -6,14 +6,21 @@ import {
     Switch
 } from 'react-router-dom';
 import Home from './components/Home';
+import FriendshipQuiz from './components/Friendship';
 
 function App() {
   return (
-    <Router>
     <div className="App">
-    <Home />
+    <Switch>
+
+    <Route path="/friendship/">
+	  <FriendshipQuiz />
+    </Route>
+    <Route path="/">
+	  <Home />
+	  </Route>
+    </Switch>
     </div>
-    </Router>
  );
 }
 

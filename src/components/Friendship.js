@@ -78,9 +78,10 @@ const {step} = this.state;
 
 class GetName extends React.Component{
 render(){
-return(<div>
-<input type="text" name="name" onChange={this.props.handleChange} value={this.props.name} placeholder="Enter your name" class="name-box"/>
-	<button onClick={this.props.nextFunc}>Next</button>
+return(<div class="container quiz-container">
+	<h4 class="h4" >Please enter your name.</h4>
+<input type="text" name="name" onChange={this.props.handleChange} value={this.props.name} placeholder="Your name" class="form-control"/><br/>
+	<button class="btn btn-success btn-block mx-auto" onClick={this.props.nextFunc}>Next</button>
 	</div>
 )
 }

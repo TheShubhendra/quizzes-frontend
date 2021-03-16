@@ -1,6 +1,7 @@
 import React from 'react';
 import Question from './Question';
 
+const API_BASE_URL = "https://quizzes-api.herokuapp.com/";
 class FriendshipQuiz extends React.Component{
 constructor(props){
 super(props);
@@ -15,7 +16,7 @@ answers:null
 }
 }
 componentDidMount(){
-fetch("https://quizzes-api.herokuapp.com/api/friendship/questions/")
+fetch(API_BASE_URL + "api/friendship/questions/")
 .then(res=>res.json())
 .then(res=>{
 	this.questions=res.results;
@@ -53,7 +54,20 @@ handleChange = (e)=>{
 }
 
 saveQuiz = (e)=>{
-alert(JSON.stringify(this.state.answers));
+	fetch(API_BASE_URL + "api/friendship/quiz/",{
+		method:"POST",
+		headers:{
+			Accept:"application/json",
+			"Content-Type":"application/json"
+		},
+		body:JSON.stringify({
+			"name":this.state.name,
+			"data":this.state.answers
+		})
+	})
+	.catch(error=>{
+		alert(error);
+	});
 }
 render(){
 const {step} = this.state;

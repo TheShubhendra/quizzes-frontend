@@ -12,7 +12,8 @@ step:0,
 question:{
 },
 count:null,
-answers:null
+answers:null,
+submited:false
 }
 }
 componentDidMount(){
@@ -68,9 +69,15 @@ saveQuiz = (e)=>{
 	.catch(error=>{
 		alert(error);
 	});
+	this.setState({submited:true});
+
 }
 render(){
-const {step} = this.state;
+const {step, submited} = this.state;
+	if (submited){
+	 return <Responses name={this.state.name}
+		/>
+	 }
 	if (step===0){
          return <GetName
 		name={this.state.name}
@@ -101,4 +108,17 @@ return(<div class="container quiz-container">
 }
 }
 
+class Responses extends React.Component{
+
+render(){
+return(
+	<div>
+  <h2>{this.props.name}</h2>
+  <h4>Result</h4>
+	</div>
+
+)
+}
+
+}
 export default FriendshipQuiz;

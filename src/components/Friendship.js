@@ -1,5 +1,6 @@
 import React from 'react';
 import Question from './Question';
+import Loader from './Loader';
 
 const API_BASE_URL = "https://quizzes-api.herokuapp.com/";
 class FriendshipQuiz extends React.Component{
@@ -13,7 +14,8 @@ question:{
 },
 count:null,
 answers:null,
-submited:false
+submited:false,
+isLoaded:false
 }
 }
 componentDidMount(){
@@ -23,7 +25,8 @@ fetch(API_BASE_URL + "api/friendship/questions/")
 	this.questions=res.results;
 	this.setState({
 		question:this.questions[0],
-		count:res.count
+		count:res.count,
+		isLoaded:true
 	});
 
 })
@@ -73,11 +76,14 @@ saveQuiz = (e)=>{
 
 }
 render(){
-const {step, submited} = this.state;
+const {step, submited, isLoaded} = this.state;
 	if (submited){
 	 return <Responses name={this.state.name}
 		/>
 	 }
+	if(!isLoaded){
+		return <Loader />
+	}
 	if (step===0){
          return <GetName
 		name={this.state.name}

@@ -77,10 +77,6 @@ saveQuiz = (e)=>{
 }
 render(){
 const {step, submited, isLoaded} = this.state;
-	if (submited){
-	 return <Responses name={this.state.name}
-		/>
-	 }
 	if(!isLoaded){
 		return <Loader />
 	}
@@ -114,17 +110,4 @@ return(<div class="container quiz-container">
 }
 }
 
-class Responses extends React.Component{
-
-render(){
-return(
-	<div>
-  <h2>{this.props.name}</h2>
-  <h4>Result</h4>
-	</div>
-
-)
-}
-
-}
 export default FriendshipQuiz;

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 import Question from './Question';
 import Loader from './Loader';
 
@@ -15,7 +16,8 @@ question:{
 count:null,
 answers:null,
 submited:false,
-isLoaded:false
+isLoaded:false,
+redirect:null
 }
 }
 componentDidMount(){
@@ -72,11 +74,14 @@ saveQuiz = (e)=>{
 	.catch(error=>{
 		alert(error);
 	});
-	this.setState({submited:true});
+	this.setState({submited:true,redirect:"/view"});
 
 }
 render(){
-const {step, submited, isLoaded} = this.state;
+const {step, submited, isLoaded, redirect} = this.state;
+	if(redirect){
+		<Redirect to={redirect} />
+	}
 	if(!isLoaded){
 		return <Loader />
 	}
